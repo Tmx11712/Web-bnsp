@@ -3,25 +3,50 @@
 
 ---
 
-## 🚀 Cara Setup Cepat
+## 🚀 Cara Setup di Komputer Baru
 
-### 1. Backend (Laravel) - Direktori Utama
+Jika kamu baru saja meng-clone repository ini, ikuti langkah-langkah berikut untuk menjalankan aplikasi:
+
+### 1. Persiapan Database
+*   Buka **Laragon** atau **XAMPP** dan pastikan MySQL berjalan.
+*   Buat database baru melalui phpMyAdmin atau Terminal dengan nama: `db_siswa`.
+*   (Opsional) Jika ingin menggunakan data yang sudah ada, import file `db_siswa.sql` ke database tersebut.
+
+### 2. Backend (Laravel)
+Buka terminal di folder utama proyek:
 ```bash
-# Di direktori: c:\laragon\www\siswa-app
+# 1. Install dependensi PHP
 composer install
-# .env sudah disiapkan (menggunakan MySQL)
+
+# 2. Setup environment file
+cp .env.example .env
+
+# 3. Generate Application Key
 php artisan key:generate
+
+# 4. Konfigurasi Database di file .env
+# Pastikan DB_DATABASE=db_siswa, DB_USERNAME, dan DB_PASSWORD sudah sesuai.
+
+# 5. Jalankan migrasi dan isi data sampel (Seeder)
 php artisan migrate:fresh --seed
+
+# 6. Jalankan server backend
 php artisan serve
-# → Backend berjalan di http://localhost:8000
+# → Backend akan berjalan di http://localhost:8000
 ```
 
-### 2. Frontend (React) - Direktori `frontend-siswa`
+### 3. Frontend (React)
+Buka terminal baru di dalam folder `frontend-siswa`:
 ```bash
+# 1. Masuk ke folder frontend
 cd frontend-siswa
+
+# 2. Install dependensi Node.js
 npm install
+
+# 3. Jalankan server frontend
 npm run dev
-# → Frontend berjalan di http://localhost:5173
+# → Frontend akan berjalan di http://localhost:5173
 ```
 
 ---
