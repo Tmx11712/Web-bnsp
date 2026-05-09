@@ -25,7 +25,7 @@ cp .env.example .env
 php artisan key:generate
 
 # 4. Konfigurasi Database di file .env
-# Pastikan DB_DATABASE=db_siswa, DB_USERNAME, dan DB_PASSWORD sudah sesuai.
+# 
 
 # 5. Jalankan migrasi dan isi data sampel (Seeder)
 php artisan migrate:fresh --seed
